@@ -3,7 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t test .'
+        sh '''echo $WORKSPACE
+docker build -t php-test .'''
+      }
+    }
+    stage('PHPUnit test') {
+      steps {
+        sh 'phpunit --bootstrap Email.php tests/EmailTest'
       }
     }
   }
