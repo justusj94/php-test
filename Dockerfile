@@ -5,7 +5,7 @@ COPY . /app
 WORKDIR /app
 
 #install phpunit
-RUN wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
+RUN apt-get -y install wget && wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
 RUN chmod +x phpunit
 RUN mv phpunit /usr/local/bin/phpunit
 RUN phpunit --version
