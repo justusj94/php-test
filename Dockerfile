@@ -5,4 +5,4 @@ COPY . /app
 WORKDIR /app
 
 #install phpunit
-RUN apt-get update && apt-get -y install wget && wget -O phpunit https://phar.phpunit.de/phpunit-7.0phar && chmod +x phpunit-7.0phar && mv phpunit-7.0phar /usr/local/bin/phpunit
+RUN apt-get update && apt-get -y install wget && wget -O phpunit https://phar.phpunit.de/phpunit-7.0.phar && chmod +x phpunit-7.0.phar && mv phpunit-7.0phar /usr/local/bin/phpunit
