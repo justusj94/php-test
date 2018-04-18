@@ -9,13 +9,7 @@ docker build -t php-test .'''
     }
     stage('PHPUnit test') {
       steps {
-        sh '''docker run --name="php-test" php-test /bin/bash -c "phpunit --bootstrap Email.php tests/EmailTest"
-
-#copy test results from container
-docker cp test:/app/results $WORKSPACE
-
-#remove container
-docker rm php-test'''
+        sh 'docker run --name="php-test" php-test /bin/bash -c "phpunit --bootstrap Email.php tests/EmailTest"'
       }
     }
     stage('Deploy') {
