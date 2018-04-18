@@ -10,7 +10,10 @@ docker build -t php-test .'''
     stage('PHPUnit test') {
       steps {
         sh '''#run image and remove after completing command in bash
-docker run --rm php-test /bin/bash -c "phpunit --bootstrap Email.php tests/EmailTest"'''
+docker run --rm php-test /bin/bash -c "phpunit --bootstrap Email.php tests/EmailTest"
+
+
+rm -r $WORKSPACE/app/*'''
       }
     }
     stage('Deploy') {
