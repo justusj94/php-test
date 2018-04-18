@@ -9,8 +9,9 @@ docker build -t php-test .'''
     }
     stage('PHPUnit test') {
       steps {
-        sh '''docker run php-test --rm /bin/bash -c "phpunit --version ; phpunit --bootstrap Email.php tests/EmailTest"
-'''
+        sh '''docker run php-test /bin/bash -c "phpunit --version ; phpunit --bootstrap Email.php tests/EmailTest"
+
+docker rm php-test'''
       }
     }
   }
