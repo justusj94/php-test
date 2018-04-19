@@ -17,7 +17,7 @@ docker run --rm php-test /bin/bash -c "phpunit --bootstrap Email.php tests/Email
       steps {
         sh '''#deploy to remote server with ssh
 ssh root@stage.boomerweb.nl \'rm -r -f /var/www/stage.boomerweb.nl/justus/pipeline-test/*\'
-scp -r --exclude \'app\' $WORKSPACE/* root@stage.boomerweb.nl:/var/www/stage.boomerweb.nl/justus/pipeline-test
+scp -r --exclude=app $WORKSPACE/* root@stage.boomerweb.nl:/var/www/stage.boomerweb.nl/justus/pipeline-test
 '''
       }
     }
