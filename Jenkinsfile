@@ -19,7 +19,7 @@ docker run --rm php-test /bin/bash -c "phpunit --bootstrap Email.php tests/Email
 ssh root@stage.boomerweb.nl \'rm -r -f /var/www/stage.boomerweb.nl/justus/pipeline-test/*\'
 
 #remove working directory to not copy it 
-rm -r $WORKSPACE/app
+rm -r -f $WORKSPACE/app
 
 #deploy to remote server with ssh
 scp -r $WORKSPACE/* root@stage.boomerweb.nl:/var/www/stage.boomerweb.nl/justus/pipeline-test
